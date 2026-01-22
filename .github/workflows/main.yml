@@ -1,0 +1,25 @@
+name: My First CI/CD Pipeline
+
+# Kab chalna hai? Jab bhi code push ho.
+on: [push]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest  # GitHub ka computer use kar rahe hain
+
+    steps:
+      # Step 1: Humara code download karo
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Testing start karo
+      - name: Run Basic Tests
+        run: |
+          echo "Starting tests..."
+          echo "Checking HTML file..."
+          ls index.html
+          echo "Test Passed: Index file exists!"
+
+      # Step 3: Deployment (Nakli)
+      - name: Deploy to Server
+        run: echo "Deploying website to production server... SUCCESS!"
